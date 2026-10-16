@@ -1,113 +1,90 @@
-'use client';
-
+import Link from 'next/link';
 import Image from 'next/image';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
-import { ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { CONTACT } from '@/lib/liger-data';
 
+/**
+ * Attention chapter: Editorial Split.
+ * Text left in a max-w-5xl container (H1 locked to 2 lines),
+ * portrait photograph right, massive negative space between chapters.
+ */
 export default function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start start', 'end start'],
-  });
-
-  // Scroll craft: the hero photo drifts and deepens as you scroll away
-  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '22%']);
-  const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '60%']);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
-
   return (
     <section
-      id="home"
-      ref={sectionRef}
-      className="relative h-screen min-h-[620px] overflow-hidden"
+      className="chapter-dark grain relative flex min-h-svh items-center overflow-hidden"
       aria-labelledby="hero-heading"
     >
-      {/* Background image: Ken Burns on arrival, parallax on scroll */}
-      <motion.div style={{ y: bgY, scale: bgScale }} className="absolute inset-0 will-change-transform">
-        <Image
-          src="/images/liger/jewels-of-namibia.webp"
-          alt="Golden dunes of the Namib desert, the Jewels of Namibia route"
-          fill
-          className="object-cover animate-kenburns"
-          priority
-          sizes="100vw"
-        />
-      </motion.div>
-
-      {/* Overlay: olive-black gradient for text legibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#262115]/55 via-[#262115]/25 to-[#262115]/60" />
-
-      {/* Content */}
-      <motion.div
-        style={{ y: contentY, opacity: contentOpacity }}
-        className="relative z-10 flex flex-col items-center justify-center h-full px-4 sm:px-6 text-center"
+      {/* Ambient glows sampled from the logo sun gradient */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
       >
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-[var(--color-liger-glow)] uppercase tracking-[0.3em] text-xs sm:text-sm font-semibold mb-4 font-body"
-        >
-          Windhoek, Namibia
-        </motion.p>
+        <div className="absolute -right-40 -top-40 h-[560px] w-[560px] rounded-full bg-[var(--color-liger-accent)] opacity-[0.14] blur-[140px]" />
+        <div className="absolute -bottom-48 -left-32 h-[520px] w-[520px] rounded-full bg-[var(--color-liger-glow)] opacity-[0.08] blur-[150px]" />
+      </div>
 
-        <motion.h1
-          id="hero-heading"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white max-w-4xl leading-[1.08] tracking-tight text-balance"
-        >
-          Discover <span className="script-accent text-[var(--color-liger-accent)]">Namibia</span> with Liger Tours
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-6 text-white/90 max-w-2xl text-base sm:text-lg font-body leading-relaxed"
-        >
-          Authentic experiences, unforgettable adventures and breathtaking
-          landscapes. Guided small-group tours and safaris across Sossusvlei,
-          Etosha, Swakopmund and beyond.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-6"
-        >
-          <Button
-            asChild
-            size="lg"
-            className="bg-[var(--color-liger-accent)] hover:bg-[var(--color-liger-accent-hover)] text-[#262115] rounded-lg px-8 py-6 text-base font-semibold shadow-[0_4px_24px_rgba(252,141,64,0.35)] active:scale-[0.98] transition-all duration-300 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-14 px-4 pb-24 pt-36 sm:px-6 lg:grid-cols-[1.25fr_0.75fr] lg:gap-16 lg:px-8 lg:pb-32 lg:pt-40">
+        {/* Text column */}
+        <div className="reveal-up">
+          <h1
+            id="hero-heading"
+            className="font-display max-w-5xl text-balance text-[clamp(2.5rem,4.6vw,4rem)] font-extrabold leading-[1.04] tracking-[-0.02em] text-[#F3EDDE]"
           >
+            Discover{' '}
+            <span
+              aria-hidden="true"
+              className="mx-1 inline-block h-[0.68em] w-[1.3em] translate-y-[0.06em] rounded-full bg-cover bg-center align-baseline shadow-[0_6px_24px_rgba(252,141,64,0.35)]"
+              style={{ backgroundImage: "url('/images/net/pill-deadvlei.webp')" }}
+            />
+            Namibia with{' '}
+            <span className="text-[var(--color-liger-accent)]">Liger Tours</span>
+          </h1>
+
+          <p className="mt-7 max-w-xl text-lg leading-relaxed text-[#F3EDDE]/70 sm:text-xl">
+            Authentic experiences, unforgettable adventures and breathtaking
+            landscapes. Guided small-group tours and safaris across Sossusvlei,
+            Etosha, Swakopmund and beyond.
+          </p>
+
+          {/* Exactly two high-contrast CTAs */}
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <Link
+              href="/tours"
+              className="rounded-full bg-[var(--color-liger-accent)] px-8 py-4 text-base font-bold text-[#262115] transition-all duration-200 hover:bg-[var(--color-liger-accent-hover)] hover:shadow-[0_12px_40px_rgba(252,141,64,0.4)] active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2"
+            >
+              Plan My Tour
+            </Link>
             <a
               href={CONTACT.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
+              className="rounded-full border border-[#F3EDDE]/30 px-8 py-4 text-base font-bold text-[#F3EDDE] transition-all duration-200 hover:border-[var(--color-liger-glow)] hover:text-[var(--color-liger-glow)] active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2"
             >
-              Book Your Adventure
+              WhatsApp Us
             </a>
-          </Button>
-          <a
-            href="/tours"
-            className="relative inline-flex items-center gap-2 text-white font-body text-base font-semibold group focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2 rounded-sm"
-          >
-            Explore Our Tours
-            <span className="inline-flex items-center gap-1 transition-all duration-300 group-hover:gap-2">
-              <ArrowRight className="w-4 h-4 text-[var(--color-liger-glow)] transition-transform duration-300 group-hover:translate-x-1" />
-            </span>
-            <span className="absolute bottom-0 left-0 w-0 h-px bg-[var(--color-liger-glow)] transition-all duration-300 group-hover:w-full" />
-          </a>
-        </motion.div>
-      </motion.div>
+          </div>
+        </div>
+
+        {/* Image column: editorial portrait with location caption */}
+        <div className="reveal-up relative mx-auto w-full max-w-md lg:max-w-none [animation-delay:150ms]">
+          <div className="relative overflow-hidden rounded-[2rem] shadow-[0_40px_80px_rgba(0,0,0,0.5)]">
+            <Image
+              src="/images/net/hero-deadvlei.webp"
+              alt="A traveller standing among the ancient dead trees of Deadvlei, framed by red dunes"
+              width={1280}
+              height={1600}
+              priority
+              className="h-[520px] w-full object-cover sm:h-[560px] lg:h-[640px]"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-[#221D10]/55 via-transparent to-transparent"
+            />
+            <p className="absolute bottom-5 left-5 text-sm font-medium tracking-wide text-[#F3EDDE]/90">
+              Deadvlei, Namib-Naukluft
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

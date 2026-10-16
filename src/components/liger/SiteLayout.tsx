@@ -10,7 +10,8 @@ export default function SiteLayout({
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main id="main" className="flex-1">
+      {/* overflow guard: off-screen GSAP motion must never create a horizontal scrollbar */}
+      <main id="main" className="w-full max-w-full flex-1 overflow-x-hidden">
         {children}
       </main>
       <Footer />

@@ -14,11 +14,6 @@
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -54,9 +49,9 @@
   --color-liger-whatsapp: #25D366;
   --color-liger-whatsapp-hover: #20BD5A;
 
-  /* Font family tokens: max 2 families site-wide */
-  --font-display: var(--font-kaushan-script);
-  --font-body: var(--font-figtree);
+  /* Single family site-wide: Cabinet Grotesk (self-hosted, font-display: swap) */
+  --font-display: var(--font-cabinet);
+  --font-body: var(--font-cabinet);
 }
 
 :root {
@@ -79,11 +74,6 @@
   --border: #E4DCCA;
   --input: #E4DCCA;
   --ring: #FC8D40;
-  --chart-1: #473E21;
-  --chart-2: #FC8D40;
-  --chart-3: #5D5339;
-  --chart-4: #FAF7F0;
-  --chart-5: #8B7D5A;
   --sidebar: #FAF7F0;
   --sidebar-foreground: #2B2614;
   --sidebar-primary: #473E21;
@@ -91,40 +81,6 @@
   --sidebar-accent: #FC8D40;
   --sidebar-accent-foreground: #262115;
   --sidebar-border: #E4DCCA;
-  --sidebar-ring: #FC8D40;
-}
-
-.dark {
-  --background: #1C1811;
-  --foreground: #FAF7F0;
-  --card: #262115;
-  --card-foreground: #FAF7F0;
-  --popover: #262115;
-  --popover-foreground: #FAF7F0;
-  --primary: #FC8D40;
-  --primary-foreground: #262115;
-  --secondary: #FFD54D;
-  --secondary-foreground: #262115;
-  --muted: #33301F;
-  --muted-foreground: #C9BF9F;
-  --accent: #FC8D40;
-  --accent-foreground: #262115;
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: #453E28;
-  --input: #453E28;
-  --ring: #FC8D40;
-  --chart-1: #FC8D40;
-  --chart-2: #FFD54D;
-  --chart-3: #C9BF9F;
-  --chart-4: #473E21;
-  --chart-5: #8B7D5A;
-  --sidebar: #262115;
-  --sidebar-foreground: #FAF7F0;
-  --sidebar-primary: #FC8D40;
-  --sidebar-primary-foreground: #262115;
-  --sidebar-accent: #FFD54D;
-  --sidebar-accent-foreground: #262115;
-  --sidebar-border: #453E28;
   --sidebar-ring: #FC8D40;
 }
 
@@ -138,71 +94,27 @@
   html {
     scroll-behavior: smooth;
   }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
 
-  /* Global focus-visible ring */
   :focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
     border-radius: 4px;
   }
-
-  /* Remove default focus ring for mouse users */
   :focus:not(:focus-visible) {
     outline: none;
   }
 }
 
-/* Brand bar: fixed accent strip sampled from the logo sun gradient, CLS 0 */
+/* Brand bar: accent strip sampled from the logo sun gradient, CLS 0 */
 .brand-bar {
   height: 4px;
   width: 100%;
   background: linear-gradient(90deg, #FFD54D 0%, #FC8D40 55%, #F57E2E 100%);
-}
-
-/* Ken Burns animation */
-@keyframes kenburns {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.08);
-  }
-}
-
-.animate-kenburns {
-  animation: kenburns 20s ease-out forwards;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-kenburns {
-    animation: none;
-  }
-}
-
-/* Marquee animation */
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-marquee {
-  animation: marquee 30s linear infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
-    animation: none;
-  }
-}
-
-/* Pause marquee on hover/focus */
-.marquee-pause:hover .animate-marquee,
-.marquee-pause:focus-within .animate-marquee {
-  animation-play-state: paused;
 }
 
 /* Skip-to-content link */
@@ -224,19 +136,19 @@
   top: 0;
 }
 
-/* Font utility classes */
+/* Font utility classes (single family: Cabinet Grotesk) */
 .font-display {
-  font-family: var(--font-display), cursive;
+  font-family: var(--font-display), system-ui, sans-serif;
 }
 .font-body {
   font-family: var(--font-body), system-ui, sans-serif;
 }
 
-/* Script accent: logo-echo display moments */
+/* Display accent moments (logo echoes) */
 .script-accent {
-  font-family: var(--font-display), cursive;
-  font-weight: 400;
-  letter-spacing: 0.01em;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.01em;
 }
 
 /* Sand texture overlay (olive) */
@@ -244,20 +156,53 @@
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23473E21' fill-opacity='0.03'%3E%3Cpath d='M0 0h1v1H0zM4 4h1v1H4zM8 0h1v1H8zM12 4h1v1h-1zM16 0h1v1h-1zM20 4h1v1h-1zM24 0h1v1h-1zM28 4h1v1h-1zM32 0h1v1h-1zM36 4h1v1h-1z'/%3E%3C/g%3E%3C/svg%3E");
 }
 
+/* Film grain for dark cinematic chapters */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");
+}
+
+/* Dark chapter text palette */
+.chapter-dark {
+  background-color: #221D10;
+  color: #F3EDDE;
+}
+
+/* Entrance reveal (hero + above-the-fold) */
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-up {
+  animation: revealUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up {
+    animation: none;
+  }
+}
+
 /* Custom scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
 }
-
 .custom-scrollbar::-webkit-scrollbar-track {
   background: transparent;
 }
-
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background: #E4DCCA;
   border-radius: 3px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #8B7D5A;
 }

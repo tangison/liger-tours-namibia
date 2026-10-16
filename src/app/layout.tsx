@@ -1,19 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Kaushan_Script, Figtree } from "next/font/google";
+import localFont from "next/font/local";
 import { CONTACT } from "@/lib/liger-data";
 import "./globals.css";
 
-const kaushanScript = Kaushan_Script({
-  variable: "--font-kaushan-script",
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-});
-
-const figtree = Figtree({
-  variable: "--font-figtree",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+/* Cabinet Grotesk: single family site-wide (display 800/900, body 400/500/700).
+   Self-hosted from Fontshare (ITF free license, commercial use allowed). */
+const cabinetGrotesk = localFont({
+  src: [
+    { path: "../fonts/CabinetGrotesk-400.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/CabinetGrotesk-500.woff2", weight: "500", style: "normal" },
+    { path: "../fonts/CabinetGrotesk-700.woff2", weight: "700", style: "normal" },
+    { path: "../fonts/CabinetGrotesk-800.woff2", weight: "800", style: "normal" },
+    { path: "../fonts/CabinetGrotesk-900.woff2", weight: "900", style: "normal" },
+  ],
+  variable: "--font-cabinet",
   display: "swap",
 });
 
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#473E21",
+  themeColor: "#262115",
   width: "device-width",
   initialScale: 1,
 };
@@ -129,7 +129,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${kaushanScript.variable} ${figtree.variable} antialiased bg-background text-foreground`}
+        className={`${cabinetGrotesk.variable} antialiased bg-background text-foreground`}
       >
         <a href="#main" className="skip-link">
           Skip to content

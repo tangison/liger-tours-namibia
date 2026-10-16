@@ -54,8 +54,8 @@ export const TOURS: Tour[] = [
     description:
       "Our signature Namibia journey combining desert dunes, coastal charm, granite peaks, and exceptional wildlife encounters.",
     highlights: ["Sossusvlei dunes", "Swakopmund coast", "Etosha safari"],
-    image: "/images/liger/sossusvlei-dunes.webp",
-    imageAlt: "Red dunes of the Namib desert at Sossusvlei",
+    image: "/images/net/tour-featured.webp",
+    imageAlt: "Travellers walking a sandy road toward towering red dunes",
     featured: true,
   },
   {
@@ -80,8 +80,8 @@ export const TOURS: Tour[] = [
       "Waterberg landscapes",
       "Comfortable lodge accommodation",
     ],
-    image: "/images/liger/etosha-rhino.webp",
-    imageAlt: "Black rhino at a waterhole in Etosha National Park",
+    image: "/images/net/tour-etosha.webp",
+    imageAlt: "A lion resting in the grass of Etosha National Park",
   },
   {
     slug: "kalahari-quiver-tree-forest-fish-river-canyon",
@@ -90,8 +90,8 @@ export const TOURS: Tour[] = [
     description:
       "Journey through the red sands of the Kalahari and witness the dramatic landscapes of southern Namibia.",
     highlights: ["Kalahari Desert", "Quiver Tree Forest", "Fish River Canyon"],
-    image: "/images/liger/kalahari.webp",
-    imageAlt: "Animals in the red sands of the Kalahari Desert",
+    image: "/images/net/tour-kalahari.webp",
+    imageAlt: "Quiver trees standing against a moody Kalahari sky",
   },
   {
     slug: "windhoek-sossusvlei-swakopmund-brandberg",
@@ -110,8 +110,8 @@ export const TOURS: Tour[] = [
     description:
       "Discover Namibia's diverse cultures, ancient rock landscapes, and world-class wildlife viewing.",
     highlights: ["Damaraland heritage", "Owambo culture", "Etosha wildlife"],
-    image: "/images/liger/etosha-wildlife.webp",
-    imageAlt: "Wildlife on the plains of Etosha National Park",
+    image: "/images/net/tour-damaraland.webp",
+    imageAlt: "Hazy mountain vistas of Damaraland's ancient landscapes",
   },
   {
     slug: "sossusvlei-swakopmund-tour",
@@ -134,8 +134,8 @@ export const TOURS: Tour[] = [
       "Scenic desert roads",
       "Swakopmund coastal charm",
     ],
-    image: "/images/liger/swakopmund.webp",
-    imageAlt: "The Swakopmund coastline on the Atlantic Ocean",
+    image: "/images/net/tour-coast.webp",
+    imageAlt: "Green ocean water meeting the dunes of the Namib coast",
   },
   {
     slug: "24-days-namibia-discovery-tour",
@@ -160,8 +160,8 @@ export const TOURS: Tour[] = [
       "Divundu",
       "Zambezi Region",
     ],
-    image: "/images/liger/wildlife-elephant.webp",
-    imageAlt: "Elephants in the Namibian bush",
+    image: "/images/net/tour-discovery.webp",
+    imageAlt: "Guests relaxing in camp chairs during a golden-hour sundowner",
   },
 ];
 

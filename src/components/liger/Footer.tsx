@@ -21,94 +21,114 @@ const LEGAL_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[var(--color-liger-dark)] text-[#EDE7D3]">
+    <footer className="chapter-dark relative" aria-labelledby="footer-heading">
       {/* Brand bar echo at the top edge of the footer */}
       <div className="brand-bar" aria-hidden="true" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        {/* Top: Logo center */}
-        <div className="text-center mb-10">
-          <span className="inline-block bg-white/95 rounded-xl px-4 py-3">
-            <Image
-              src="/images/liger/logo.webp"
-              alt="Liger Tours Namibia logo: an acacia tree at sunset"
-              width={180}
-              height={59}
-              className="w-40 sm:w-48 h-auto object-contain mx-auto"
-            />
-          </span>
-          <p className="text-white/70 font-body text-sm sm:text-base max-w-xl mx-auto mt-5 leading-relaxed">
-            {FOOTER_BLURB}
-          </p>
-        </div>
+      <h2 id="footer-heading" className="sr-only">
+        Site footer
+      </h2>
 
-        {/* Middle: Links */}
-        <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-8" aria-label="Footer navigation">
-          {FOOTER_LINKS.map((link) => (
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.2fr_0.6fr_0.9fr] lg:gap-16">
+          {/* Brand column */}
+          <div>
             <Link
-              key={link.href}
-              href={link.href}
-              className="text-white/70 hover:text-[var(--color-liger-glow)] transition-colors font-body text-sm font-medium focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2 rounded-sm"
+              href="/"
+              className="inline-block rounded-md focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2"
+              aria-label="Liger Tours Namibia, home"
             >
-              {link.label}
+              <Image
+                src="/images/liger/logo-white.webp"
+                alt="Liger Tours Namibia"
+                width={170}
+                height={56}
+                className="h-12 w-auto object-contain"
+              />
             </Link>
-          ))}
-        </nav>
-
-        {/* Contact info */}
-        <address className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-8 mb-8 text-sm font-body not-italic">
-          <a
-            href={`tel:${CONTACT.phoneTel}`}
-            className="flex items-center gap-2 text-white/70 hover:text-[var(--color-liger-glow)] transition-colors focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2 rounded-sm"
-          >
-            <Phone className="w-4 h-4" aria-hidden="true" />
-            {CONTACT.phoneDisplay}
-          </a>
-          <a
-            href={`mailto:${CONTACT.email}`}
-            className="flex items-center gap-2 text-white/70 hover:text-[var(--color-liger-glow)] transition-colors focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2 rounded-sm"
-          >
-            <Mail className="w-4 h-4" aria-hidden="true" />
-            {CONTACT.email}
-          </a>
-          <span className="flex items-center gap-2 text-white/70">
-            <MapPin className="w-4 h-4" aria-hidden="true" />
-            {CONTACT.location}
-          </span>
-          <span className="flex items-center gap-2 text-white/70">
-            <Clock className="w-4 h-4" aria-hidden="true" />
-            7:30 AM - 11:00 PM
-          </span>
-        </address>
-
-        {/* Legal links */}
-        <nav className="flex flex-wrap justify-center gap-x-5 gap-y-2 mb-8" aria-label="Legal">
-          {LEGAL_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-white/45 hover:text-white/80 transition-colors font-body text-xs focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2 rounded-sm"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Divider */}
-        <div className="border-t border-white/10 pt-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/45 font-body">
-            <p>&copy; {new Date().getFullYear()} Liger Tours Namibia. All rights reserved.</p>
-            <p>
-              Made by{' '}
-              <a
-                href="https://studio.tangison.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[var(--color-liger-accent)] hover:text-[var(--color-liger-glow)] transition-colors focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2 rounded-sm"
-              >
-                Tangison Studio
-              </a>
+            <p className="mt-5 max-w-sm leading-relaxed text-[#F3EDDE]/60">
+              {FOOTER_BLURB}
             </p>
           </div>
+
+          {/* Explore column */}
+          <nav aria-label="Footer">
+            <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-[var(--color-liger-glow)]">
+              Explore
+            </h3>
+            <ul className="mt-5 space-y-3">
+              {FOOTER_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-[15px] text-[#F3EDDE]/70 transition-colors hover:text-[var(--color-liger-glow)] focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2 rounded-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Contact column */}
+          <div>
+            <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-[var(--color-liger-glow)]">
+              Talk to us
+            </h3>
+            <address className="mt-5 flex flex-col gap-3 text-[15px] not-italic">
+              <a
+                href={`tel:${CONTACT.phoneTel}`}
+                className="flex items-center gap-2.5 text-[#F3EDDE]/70 transition-colors hover:text-[var(--color-liger-glow)] focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2 rounded-sm"
+              >
+                <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
+                {CONTACT.phoneDisplay}
+              </a>
+              <a
+                href={`mailto:${CONTACT.email}`}
+                className="flex items-center gap-2.5 text-[#F3EDDE]/70 transition-colors hover:text-[var(--color-liger-glow)] focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2 rounded-sm"
+              >
+                <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
+                {CONTACT.email}
+              </a>
+              <span className="flex items-center gap-2.5 text-[#F3EDDE]/70">
+                <MapPin className="h-4 w-4 shrink-0" aria-hidden="true" />
+                {CONTACT.location}
+              </span>
+              <span className="flex items-center gap-2.5 text-[#F3EDDE]/70">
+                <Clock className="h-4 w-4 shrink-0" aria-hidden="true" />
+                7:30 AM - 11:00 PM
+              </span>
+            </address>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-7 sm:flex-row">
+          <p className="text-xs text-[#F3EDDE]/45">
+            &copy; {new Date().getFullYear()} Liger Tours Namibia. All rights
+            reserved.
+          </p>
+          <nav className="flex flex-wrap justify-center gap-x-5 gap-y-2" aria-label="Legal">
+            {LEGAL_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-xs text-[#F3EDDE]/45 transition-colors hover:text-[#F3EDDE]/85 focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2 rounded-sm"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+          <p className="text-xs text-[#F3EDDE]/45">
+            Made by{' '}
+            <a
+              href="https://studio.tangison.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--color-liger-accent)] transition-colors hover:text-[var(--color-liger-glow)] focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2 rounded-sm"
+            >
+              Tangison Studio
+            </a>
+          </p>
         </div>
       </div>
     </footer>

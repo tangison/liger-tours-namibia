@@ -2,11 +2,9 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
 import { CONTACT } from '@/lib/liger-data';
 
 const NAV_LINKS = [
@@ -19,23 +17,9 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const drawerRef = useRef<HTMLDivElement>(null);
 
-  // Transparent over the hero on the home page only
-  const isHome = pathname === '/';
-  const isBrand = pathname === '/brand';
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Focus trap + Escape key for mobile drawer
   useEffect(() => {
     if (!mobileOpen) return;
 
@@ -75,168 +59,141 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
-  const useTransparentText = (isHome || isBrand) && !scrolled;
-
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-[0_1px_3px_rgba(43,38,20,0.08)]'
-            : useTransparentText
-              ? 'bg-transparent'
-              : 'bg-white/95 backdrop-blur-md shadow-[0_1px_3px_rgba(43,38,20,0.08)]'
-        }`}
-        aria-label="Main navigation"
-      >
+      <header className="fixed top-0 left-0 right-0 z-50" aria-label="Main navigation">
         {/* Brand bar: accent strip sampled from the logo sun gradient */}
         <div className="brand-bar" aria-hidden="true" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-20">
-            {/* Logo: real client asset on a soft chip so the olive stays legible on any photo */}
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mt-3 flex items-center justify-between gap-4 rounded-2xl bg-[#262115]/80 px-4 py-2.5 shadow-[0_10px_40px_rgba(20,16,6,0.35)] backdrop-blur-xl sm:mt-4 sm:px-5">
+            {/* Client emblem (tree + sun) with a Cabinet Grotesk wordmark:
+                the full logo is illegible at navbar sizes, the emblem is not */}
             <Link
               href="/"
-              className="flex items-center shrink-0 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded-md"
+              className="flex shrink-0 items-center gap-2.5 rounded-md focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2"
               aria-label="Liger Tours Namibia, home"
             >
-              <span
-                className={`block rounded-lg px-2.5 py-1.5 ${
-                  useTransparentText ? 'bg-white/85 backdrop-blur-sm' : ''
-                }`}
-              >
-                <Image
-                  src="/images/liger/logo.webp"
-                  alt=""
-                  width={150}
-                  height={49}
-                  className="h-9 sm:h-11 w-auto object-contain"
-                  priority
-                />
+              <Image
+                src="/images/liger/emblem-white.webp"
+                alt=""
+                width={84}
+                height={52}
+                className="h-9 w-auto object-contain sm:h-10"
+                priority
+              />
+              <span className="flex flex-col leading-none">
+                <span className="font-display text-lg font-extrabold tracking-tight text-[#F3EDDE]">
+                  Liger Tours
+                </span>
+                <span className="mt-1 text-[10px] font-bold uppercase tracking-[0.35em] text-[#F3EDDE]/60">
+                  Namibia
+                </span>
               </span>
             </Link>
 
-            {/* Desktop Nav */}
-            <div className="hidden md:flex items-center gap-1 lg:gap-2">
+            {/* Desktop links */}
+            <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
               {NAV_LINKS.map((link) => {
                 const isActive = pathname === link.href;
-
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`relative px-3 py-2 text-sm font-semibold tracking-wide transition-colors rounded-md focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 ${
+                    aria-current={isActive ? 'page' : undefined}
+                    className={`relative rounded-full px-4 py-2 text-[15px] font-medium tracking-wide transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2 ${
                       isActive
-                        ? 'text-[var(--color-liger-accent-deep)]'
-                        : useTransparentText
-                          ? 'text-white hover:text-[var(--color-liger-glow)]'
-                          : 'text-primary hover:text-[var(--color-liger-accent-deep)]'
+                        ? 'text-[var(--color-liger-glow)]'
+                        : 'text-[#F3EDDE]/85 hover:text-white'
                     }`}
                   >
                     {link.label}
                     {isActive ? (
-                      <motion.div
-                        layoutId="activeNav"
-                        className="absolute bottom-0 left-3 right-3 h-0.5 bg-accent rounded-full"
+                      <span
+                        aria-hidden="true"
+                        className="absolute inset-x-4 -bottom-0.5 h-[2px] rounded-full bg-gradient-to-r from-[var(--color-liger-glow)] to-[var(--color-liger-accent)]"
                       />
                     ) : null}
                   </Link>
                 );
               })}
-            </div>
+              <a
+                href={CONTACT.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-2 rounded-full bg-[var(--color-liger-accent)] px-5 py-2 text-[15px] font-bold text-[#262115] transition-all duration-200 hover:bg-[var(--color-liger-accent-hover)] active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2"
+              >
+                Book on WhatsApp
+              </a>
+            </nav>
 
             {/* Mobile hamburger */}
             <button
               onClick={() => setMobileOpen(true)}
-              className="md:hidden p-2 rounded-lg transition-colors flex items-center justify-center focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+              className="flex items-center justify-center rounded-lg p-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2 md:hidden"
               aria-label="Open menu"
               aria-expanded={mobileOpen}
             >
-              <div className="flex flex-col gap-1.5 transition-all duration-300">
-                <span className={`block w-6 h-0.5 transition-all duration-300 ${useTransparentText ? 'bg-white' : 'bg-primary'}`} />
-                <span className={`block w-6 h-0.5 transition-all duration-300 ${useTransparentText ? 'bg-white' : 'bg-primary'}`} />
-                <span className="block w-4 h-0.5 transition-all duration-300 bg-accent" />
-              </div>
+              <span className="flex flex-col gap-1.5">
+                <span className="block h-0.5 w-6 bg-[#F3EDDE]" />
+                <span className="block h-0.5 w-6 bg-[#F3EDDE]" />
+                <span className="block h-0.5 w-4 bg-[var(--color-liger-accent)]" />
+              </span>
             </button>
           </div>
         </div>
-      </nav>
+      </header>
 
-      {/* Mobile drawer */}
-      <AnimatePresence>
-        {mobileOpen ? (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm"
+      {/* Mobile overlay menu */}
+      <div
+        ref={drawerRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
+        className={`fixed inset-0 z-[60] flex flex-col bg-[#221D10] transition-all duration-300 md:hidden ${
+          mobileOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+        }`}
+      >
+        <div className="brand-bar" aria-hidden="true" />
+        <div className="flex items-center justify-between px-5 py-5">
+          <Image
+            src="/images/liger/logo-white.webp"
+            alt=""
+            width={130}
+            height={43}
+            className="h-11 w-auto object-contain"
+          />
+          <button
+            onClick={() => setMobileOpen(false)}
+            className="rounded-lg p-2 text-[#F3EDDE] transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2"
+            aria-label="Close menu"
+          >
+            <X className="h-6 w-6" aria-hidden="true" />
+          </button>
+        </div>
+        <nav className="flex flex-1 flex-col justify-center gap-1 px-8" aria-label="Mobile">
+          {NAV_LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
               onClick={() => setMobileOpen(false)}
-              aria-hidden="true"
-            />
-            <motion.div
-              ref={drawerRef}
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              role="dialog"
-              aria-modal="true"
-              aria-label="Navigation menu"
-              className="fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-background shadow-[0_8px_30px_rgba(43,38,20,0.14)]"
+              className="border-b border-white/10 py-4 text-3xl font-extrabold tracking-tight text-[#F3EDDE] transition-colors hover:text-[var(--color-liger-glow)] focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2"
             >
-              <div className="flex items-center justify-between p-6 border-b border-border">
-                <Image
-                  src="/images/liger/logo.webp"
-                  alt=""
-                  width={130}
-                  height={43}
-                  className="h-9 w-auto object-contain"
-                />
-                <button
-                  onClick={() => setMobileOpen(false)}
-                  className="p-2 rounded-lg text-primary hover:bg-primary/10 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
-                  aria-label="Close menu"
-                >
-                  <X className="w-6 h-6" />
-                </button>
-              </div>
-              <div className="flex flex-col p-6 gap-2">
-                {NAV_LINKS.map((link, i) => (
-                  <motion.div
-                    key={link.href}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 }}
-                  >
-                    <Link
-                      href={link.href}
-                      onClick={() => setMobileOpen(false)}
-                      className="flex items-center gap-3 px-4 py-3 text-lg font-semibold text-primary hover:text-[var(--color-liger-accent-deep)] hover:bg-primary/5 rounded-lg transition-colors focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
-                    >
-                      {link.label}
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-              <div className="p-6 border-t border-border">
-                <Button
-                  asChild
-                  className="w-full bg-primary hover:bg-[var(--color-liger-primary-hover)] text-primary-foreground rounded-lg active:scale-[0.98] transition-all duration-200"
-                >
-                  <a
-                    href={CONTACT.whatsapp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    WhatsApp Us
-                  </a>
-                </Button>
-              </div>
-            </motion.div>
-          </>
-        ) : null}
-      </AnimatePresence>
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+        <div className="px-8 pb-10">
+          <a
+            href={CONTACT.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full rounded-xl bg-[var(--color-liger-accent)] py-4 text-center text-lg font-bold text-[#262115] transition-all active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2"
+          >
+            WhatsApp Us
+          </a>
+        </div>
+      </div>
     </>
   );
 }
