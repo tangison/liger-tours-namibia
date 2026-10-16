@@ -1,6 +1,7 @@
 import Navbar from '@/components/liger/Navbar';
 import Footer from '@/components/liger/Footer';
 import WhatsAppFloat from '@/components/liger/WhatsAppFloat';
+import MobileCTABar from '@/components/liger/MobileCTABar';
 
 export default function SiteLayout({
   children,
@@ -16,6 +17,7 @@ export default function SiteLayout({
       </main>
       <Footer />
       <WhatsAppFloat />
+      <MobileCTABar />
     </div>
   );
 }

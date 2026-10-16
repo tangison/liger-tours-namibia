@@ -13,7 +13,7 @@ export default function WhatsAppFloat() {
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 1.5, type: 'spring', stiffness: 200, damping: 15 }}
-      className="fixed bottom-20 right-6 sm:bottom-6 sm:right-6 z-40 w-14 h-14 bg-[var(--color-liger-whatsapp)] hover:bg-[var(--color-liger-whatsapp-hover)] rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
+      className="fixed bottom-6 right-6 z-40 hidden h-14 w-14 items-center justify-center rounded-full bg-[var(--color-liger-whatsapp)] shadow-lg transition-shadow hover:bg-[var(--color-liger-whatsapp-hover)] hover:shadow-xl focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2 sm:flex"
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
     >

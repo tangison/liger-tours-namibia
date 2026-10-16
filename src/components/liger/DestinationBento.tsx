@@ -119,7 +119,7 @@ export default function DestinationBento() {
                 />
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-t from-[#221D10]/85 via-[#221D10]/20 to-transparent transition-opacity duration-500 group-hover:opacity-90"
+                  className="absolute inset-0 bg-gradient-to-t from-[#201813]/85 via-[#201813]/20 to-transparent transition-opacity duration-500 group-hover:opacity-90"
                 />
                 <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5 sm:p-6">
                   <div>
@@ -132,7 +132,7 @@ export default function DestinationBento() {
                   </div>
                   <span
                     aria-hidden="true"
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#F3EDDE]/15 text-[#F3EDDE] backdrop-blur-sm transition-all duration-500 group-hover:rotate-45 group-hover:bg-[var(--color-liger-accent)] group-hover:text-[#262115]"
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#F3EDDE]/15 text-[#F3EDDE] backdrop-blur-sm transition-all duration-500 group-hover:rotate-45 group-hover:bg-[var(--color-liger-accent)] group-hover:text-[#201813]"
                   >
                     <ArrowUpRight className="h-5 w-5" />
                   </span>

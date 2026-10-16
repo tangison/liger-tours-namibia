@@ -140,7 +140,7 @@ export default function ActivitiesAccordion() {
                 ) : null}
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-t from-[#221D10]/90 via-[#221D10]/25 to-[#221D10]/40"
+                  className="absolute inset-0 bg-gradient-to-t from-[#201813]/90 via-[#201813]/25 to-[#201813]/40"
                 />
                 {/* Collapsed label */}
                 <span className="absolute bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap text-base font-bold tracking-wide text-[#F3EDDE] [writing-mode:vertical-rl] transition-opacity duration-300 group-hover:opacity-0 group-focus-within:opacity-0">

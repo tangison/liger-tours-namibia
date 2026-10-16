@@ -54,7 +54,7 @@ export default function AboutPage() {
                 height={1200}
                 className="w-full h-[320px] sm:h-[420px] object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#262115]/35 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#201813]/35 to-transparent" />
             </div>
           </div>
         </div>

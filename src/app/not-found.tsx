@@ -19,13 +19,13 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link
             href="/"
-            className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-[var(--color-liger-primary-hover)] text-primary-foreground font-body font-semibold rounded-lg px-6 py-3 transition-all duration-200 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+            className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-[var(--color-liger-primary-hover)] text-primary-foreground font-body font-semibold rounded-lg px-6 py-3 transition-all duration-200 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-[var(--color-liger-accent-deep)] focus-visible:outline-offset-2"
           >
             Back to Home
           </Link>
           <Link
             href="/tours"
-            className="inline-flex items-center justify-center gap-2 bg-[var(--color-liger-accent)] hover:bg-[var(--color-liger-accent-hover)] text-[#262115] font-body font-semibold rounded-lg px-6 py-3 transition-all duration-200 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+            className="inline-flex items-center justify-center gap-2 bg-[var(--color-liger-accent)] hover:bg-[var(--color-liger-accent-hover)] text-[#201813] font-body font-semibold rounded-lg px-6 py-3 transition-all duration-200 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-[var(--color-liger-accent-deep)] focus-visible:outline-offset-2"
           >
             Browse Tours
             <ArrowRight className="w-4 h-4" aria-hidden="true" />

@@ -24,7 +24,7 @@ export default function BrandStory() {
               height={1066}
               className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#262115]/35 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#201813]/35 to-transparent" />
           </motion.div>
 
           {/* Content */}

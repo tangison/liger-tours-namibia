@@ -108,7 +108,7 @@ export default function ToursScroll() {
             </p>
             <Link
               href={`/tours/${featured.slug}`}
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--color-liger-accent)] px-7 py-3.5 text-base font-bold text-[#262115] transition-all duration-200 hover:bg-[var(--color-liger-accent-hover)] active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--color-liger-accent)] px-7 py-3.5 text-base font-bold text-[#201813] transition-all duration-200 hover:bg-[var(--color-liger-accent-hover)] active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2"
             >
               View the itinerary
               <ArrowRight className="h-4 w-4" aria-hidden="true" />

@@ -51,7 +51,7 @@ export default function TourCards() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
                 {item.duration ? (
-                  <div className="absolute top-4 left-4 bg-[#262115]/85 text-white px-3 py-1 rounded-full text-xs font-semibold font-body backdrop-blur-sm">
+                  <div className="absolute top-4 left-4 bg-[#201813]/85 text-white px-3 py-1 rounded-full text-xs font-semibold font-body backdrop-blur-sm">
                     {item.duration}
                   </div>
                 ) : null}
@@ -69,7 +69,7 @@ export default function TourCards() {
                 </p>
                 <Link
                   href={`/tours/${item.slug}`}
-                  className="inline-flex items-center gap-2 text-[var(--color-liger-accent-deep)] font-semibold text-sm font-body hover:gap-3 transition-all focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded-sm"
+                  className="inline-flex items-center gap-2 text-[var(--color-liger-accent-deep)] font-semibold text-sm font-body hover:gap-3 transition-all focus-visible:outline-2 focus-visible:outline-[var(--color-liger-accent-deep)] focus-visible:outline-offset-2 rounded-sm"
                 >
                   View Tour
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
@@ -88,7 +88,7 @@ export default function TourCards() {
         >
           <Link
             href="/tours"
-            className="inline-flex items-center gap-2 font-body font-semibold text-primary hover:text-[var(--color-liger-accent-deep)] transition-colors group focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded-sm"
+            className="inline-flex items-center gap-2 font-body font-semibold text-primary hover:text-[var(--color-liger-accent-deep)] transition-colors group focus-visible:outline-2 focus-visible:outline-[var(--color-liger-accent-deep)] focus-visible:outline-offset-2 rounded-sm"
           >
             See all tours, including the 24-day discovery route
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />

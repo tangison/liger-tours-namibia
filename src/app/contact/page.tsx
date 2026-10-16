@@ -42,7 +42,7 @@ export default function ContactPage() {
                 <li>
                   <a
                     href={`tel:${CONTACT.phoneTel}`}
-                    className="flex items-start gap-3 group focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded-md"
+                    className="flex items-start gap-3 group focus-visible:outline-2 focus-visible:outline-[var(--color-liger-accent-deep)] focus-visible:outline-offset-2 rounded-md"
                   >
                     <span className="w-10 h-10 shrink-0 bg-[var(--color-liger-cream)] rounded-lg flex items-center justify-center">
                       <Phone className="w-5 h-5 text-primary" aria-hidden="true" />
@@ -58,7 +58,7 @@ export default function ContactPage() {
                 <li>
                   <a
                     href={`mailto:${CONTACT.email}`}
-                    className="flex items-start gap-3 group focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded-md"
+                    className="flex items-start gap-3 group focus-visible:outline-2 focus-visible:outline-[var(--color-liger-accent-deep)] focus-visible:outline-offset-2 rounded-md"
                   >
                     <span className="w-10 h-10 shrink-0 bg-[var(--color-liger-cream)] rounded-lg flex items-center justify-center">
                       <Mail className="w-5 h-5 text-primary" aria-hidden="true" />

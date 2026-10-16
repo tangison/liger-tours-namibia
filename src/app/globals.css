@@ -35,17 +35,19 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  /* Liger Tours Namibia brand tokens, sampled from the client logo artwork */
+  /* Liger Tours Namibia brand tokens, sampled from the client logo artwork
+     (proper logo supplied by the client 2026-10-16: olive tree #473E21,
+     dusty-rose sun gradient #E4B4B4 -> #CC8484 -> #B46C6C, script #B37471) */
   --color-liger-primary: #473E21;
   --color-liger-primary-hover: #383017;
-  --color-liger-accent: #FC8D40;
-  --color-liger-accent-hover: #F57E2E;
-  --color-liger-accent-deep: #C05621;
-  --color-liger-glow: #FFD54D;
+  --color-liger-accent: #CC8484;
+  --color-liger-accent-hover: #C47878;
+  --color-liger-accent-deep: #A15C57;
+  --color-liger-glow: #E4B4B4;
   --color-liger-surface: #FAF7F0;
   --color-liger-cream: #F3EDDE;
-  --color-liger-dark: #262115;
-  --color-liger-dark-2: #33301F;
+  --color-liger-dark: #241C16;
+  --color-liger-dark-2: #33291F;
   --color-liger-whatsapp: #25D366;
   --color-liger-whatsapp-hover: #20BD5A;
 
@@ -64,24 +66,24 @@
   --popover-foreground: #2B2614;
   --primary: #473E21;
   --primary-foreground: #FAF7F0;
-  --secondary: #FC8D40;
-  --secondary-foreground: #262115;
+  --secondary: #CC8484;
+  --secondary-foreground: #241C16;
   --muted: #F3EDDE;
   --muted-foreground: #5D5339;
-  --accent: #FC8D40;
-  --accent-foreground: #262115;
+  --accent: #CC8484;
+  --accent-foreground: #241C16;
   --destructive: oklch(0.577 0.245 27.325);
   --border: #E4DCCA;
   --input: #E4DCCA;
-  --ring: #FC8D40;
+  --ring: #B37471;
   --sidebar: #FAF7F0;
   --sidebar-foreground: #2B2614;
   --sidebar-primary: #473E21;
   --sidebar-primary-foreground: #FAF7F0;
-  --sidebar-accent: #FC8D40;
-  --sidebar-accent-foreground: #262115;
+  --sidebar-accent: #CC8484;
+  --sidebar-accent-foreground: #241C16;
   --sidebar-border: #E4DCCA;
-  --sidebar-ring: #FC8D40;
+  --sidebar-ring: #B37471;
 }
 
 @layer base {
@@ -110,11 +112,12 @@
   }
 }
 
-/* Brand bar: accent strip sampled from the logo sun gradient, CLS 0 */
+/* Brand bar: the real sun gradient from the logo artwork (light to deep rose),
+   4px, CLS 0 */
 .brand-bar {
   height: 4px;
   width: 100%;
-  background: linear-gradient(90deg, #FFD54D 0%, #FC8D40 55%, #F57E2E 100%);
+  background: linear-gradient(90deg, #E4B4B4 0%, #CC8484 45%, #B37471 100%);
 }
 
 /* Skip-to-content link */
@@ -169,8 +172,33 @@
 
 /* Dark chapter text palette */
 .chapter-dark {
-  background-color: #221D10;
+  background-color: #201813;
   color: #F3EDDE;
+}
+
+/* ---- Brand patterns (decorative, aria-hidden at usage sites) --------------
+   Dune contour lines: flowing topographic curves sampled from the desert.
+   Rose strokes on dark chapters, olive strokes on sand chapters. */
+.pattern-dunes-dark {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='420' viewBox='0 0 1200 420' fill='none'%3E%3Cg stroke='%23CC8484' stroke-width='1.5'%3E%3Cpath d='M0 70 C 180 30 420 120 640 78 S 1020 30 1200 84' stroke-opacity='0.11'/%3E%3Cpath d='M0 150 C 220 108 460 196 700 148 S 1040 108 1200 164' stroke-opacity='0.09'/%3E%3Cpath d='M0 236 C 200 196 440 280 680 230 S 1030 194 1200 248' stroke-opacity='0.07'/%3E%3Cpath d='M0 322 C 240 284 480 362 720 314 S 1050 282 1200 332' stroke-opacity='0.05'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 1200px 420px;
+  background-repeat: repeat;
+}
+.pattern-dunes-light {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='420' viewBox='0 0 1200 420' fill='none'%3E%3Cg stroke='%23473E21' stroke-width='1.5'%3E%3Cpath d='M0 70 C 180 30 420 120 640 78 S 1020 30 1200 84' stroke-opacity='0.08'/%3E%3Cpath d='M0 150 C 220 108 460 196 700 148 S 1040 108 1200 164' stroke-opacity='0.065'/%3E%3Cpath d='M0 236 C 200 196 440 280 680 230 S 1030 194 1200 248' stroke-opacity='0.05'/%3E%3Cpath d='M0 322 C 240 284 480 362 720 314 S 1050 282 1200 332' stroke-opacity='0.04'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 1200px 420px;
+  background-repeat: repeat;
+}
+
+/* Mudcloth divider band: a single row of diamonds, dashes and dunes,
+   echoed from hand-printed African textile. Use as a thin full-width strip. */
+.mudcloth-band {
+  height: 14px;
+  width: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='14' viewBox='0 0 96 14'%3E%3Cpath d='M8 7l4.5-4.5L17 7l-4.5 4.5z' fill='%23E4B4B4' fill-opacity='0.38'/%3E%3Cpath d='M32 7l4.5-4.5L41 7l-4.5 4.5z' fill='none' stroke='%23E4B4B4' stroke-opacity='0.38' stroke-width='1.4'/%3E%3Crect x='56' y='6' width='12' height='2' rx='1' fill='%23E4B4B4' fill-opacity='0.38'/%3E%3Cpath d='M78 11.5L83.5 3l5.5 8.5z' fill='%23E4B4B4' fill-opacity='0.38'/%3E%3C/svg%3E");
+  background-size: 96px 14px;
+  background-repeat: repeat-x;
+  background-position: center;
 }
 
 /* Entrance reveal (hero + above-the-fold) */

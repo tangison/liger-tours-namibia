@@ -359,16 +359,19 @@ export const ABOUT_STORY = {
   ],
 };
 
-/** Brand tokens, sampled directly from the client logo artwork (2026-10-16). */
+/** Brand tokens, sampled directly from the proper client logo artwork
+ *  (client-supplied master, 2026-10-16: olive tree, dusty-rose sun gradient,
+ *  brush-script wordmark in terracotta rose on transparent black). */
 export const BRAND_TOKENS = {
   olive: "#473E21",
   oliveHover: "#383017",
-  orange: "#FC8D40",
-  orangeHover: "#F57E2E",
-  orangeDeep: "#C05621",
-  sunGlow: "#FFD54D",
+  rose: "#CC8484",
+  roseHover: "#C47878",
+  roseDeep: "#B37471",
+  roseText: "#A15C57",
+  sunLight: "#E4B4B4",
   sand: "#FAF7F0",
   cream: "#F3EDDE",
-  dark: "#262115",
+  dark: "#241C16",
   text: "#2B2614",
 } as const;

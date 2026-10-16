@@ -22,13 +22,16 @@ const LEGAL_LINKS = [
 export default function Footer() {
   return (
     <footer className="chapter-dark relative" aria-labelledby="footer-heading">
-      {/* Brand bar echo at the top edge of the footer */}
+      {/* mudcloth divider band, then the brand bar echo at the footer edge */}
+      <div className="mudcloth-band opacity-60" aria-hidden="true" />
       <div className="brand-bar" aria-hidden="true" />
+      {/* dune contour lines in the footer backdrop */}
+      <div aria-hidden="true" className="pattern-dunes-dark pointer-events-none absolute inset-0 opacity-60" />
       <h2 id="footer-heading" className="sr-only">
         Site footer
       </h2>
 
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <div className="relative mx-auto max-w-7xl px-4 pb-28 pt-16 sm:px-6 lg:px-8 lg:pb-20 lg:pt-20">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.2fr_0.6fr_0.9fr] lg:gap-16">
           {/* Brand column */}
           <div>

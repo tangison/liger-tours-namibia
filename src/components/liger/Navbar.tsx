@@ -66,30 +66,22 @@ export default function Navbar() {
         <div className="brand-bar" aria-hidden="true" />
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mt-3 flex items-center justify-between gap-4 rounded-2xl bg-[#262115]/80 px-4 py-2.5 shadow-[0_10px_40px_rgba(20,16,6,0.35)] backdrop-blur-xl sm:mt-4 sm:px-5">
-            {/* Client emblem (tree + sun) with a Cabinet Grotesk wordmark:
-                the full logo is illegible at navbar sizes, the emblem is not */}
+          <div className="mt-3 flex items-center justify-between gap-4 rounded-2xl bg-[#201813]/80 px-4 py-2.5 shadow-[0_10px_40px_rgba(20,14,10,0.35)] backdrop-blur-xl sm:mt-4 sm:px-5">
+            {/* The real client logo (tree, sun and brush-script wordmark) on
+                the floating pill - cream/rose variant sampled from the artwork */}
             <Link
               href="/"
-              className="flex shrink-0 items-center gap-2.5 rounded-md focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2"
+              className="flex shrink-0 items-center rounded-md focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2"
               aria-label="Liger Tours Namibia, home"
             >
               <Image
-                src="/images/liger/emblem-white.webp"
+                src="/images/liger/logo-white.webp"
                 alt=""
-                width={84}
-                height={52}
-                className="h-9 w-auto object-contain sm:h-10"
+                width={300}
+                height={99}
+                className="h-9 w-auto object-contain sm:h-11"
                 priority
               />
-              <span className="flex flex-col leading-none">
-                <span className="font-display text-lg font-extrabold tracking-tight text-[#F3EDDE]">
-                  Liger Tours
-                </span>
-                <span className="mt-1 text-[10px] font-bold uppercase tracking-[0.35em] text-[#F3EDDE]/60">
-                  Namibia
-                </span>
-              </span>
             </Link>
 
             {/* Desktop links */}
@@ -121,7 +113,7 @@ export default function Navbar() {
                 href={CONTACT.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-2 rounded-full bg-[var(--color-liger-accent)] px-5 py-2 text-[15px] font-bold text-[#262115] transition-all duration-200 hover:bg-[var(--color-liger-accent-hover)] active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2"
+                className="ml-2 rounded-full bg-[var(--color-liger-accent)] px-5 py-2 text-[15px] font-bold text-[#241C16] transition-all duration-200 hover:bg-[var(--color-liger-accent-hover)] active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2"
               >
                 Book on WhatsApp
               </a>
@@ -150,7 +142,7 @@ export default function Navbar() {
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
-        className={`fixed inset-0 z-[60] flex flex-col bg-[#221D10] transition-all duration-300 md:hidden ${
+        className={`fixed inset-0 z-[60] flex flex-col bg-[#201813] transition-all duration-300 md:hidden ${
           mobileOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
         }`}
       >
@@ -159,9 +151,9 @@ export default function Navbar() {
           <Image
             src="/images/liger/logo-white.webp"
             alt=""
-            width={130}
-            height={43}
-            className="h-11 w-auto object-contain"
+            width={300}
+            height={99}
+            className="h-14 w-auto object-contain"
           />
           <button
             onClick={() => setMobileOpen(false)}
@@ -188,7 +180,7 @@ export default function Navbar() {
             href={CONTACT.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="block w-full rounded-xl bg-[var(--color-liger-accent)] py-4 text-center text-lg font-bold text-[#262115] transition-all active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2"
+            className="block w-full rounded-xl bg-[var(--color-liger-accent)] py-4 text-center text-lg font-bold text-[#241C16] transition-all active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2"
           >
             WhatsApp Us
           </a>

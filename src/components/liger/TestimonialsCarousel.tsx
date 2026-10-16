@@ -62,7 +62,7 @@ export default function TestimonialsCarousel() {
                 aria-current={i === idx}
                 className={`flex h-14 w-14 items-center justify-center rounded-full border-2 text-sm font-extrabold transition-all duration-300 focus-visible:outline-2 focus-visible:outline-[var(--color-liger-accent-deep)] focus-visible:outline-offset-2 ${
                   i === idx
-                    ? 'z-10 scale-110 border-[var(--color-liger-accent)] bg-[var(--color-liger-accent)] text-[#262115] shadow-[0_8px_24px_rgba(252,141,64,0.4)]'
+                    ? 'z-10 scale-110 border-[var(--color-liger-accent)] bg-[var(--color-liger-accent)] text-[#241C16] shadow-[0_8px_24px_rgba(204,132,132,0.45)]'
                     : 'border-[#FAF7F0] bg-[var(--color-liger-primary)] text-[#F3EDDE] hover:scale-105'
                 }`}
               >

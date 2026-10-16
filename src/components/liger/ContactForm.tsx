@@ -55,7 +55,7 @@ export default function ContactForm() {
   };
 
   const inputClass =
-    'w-full rounded-lg border border-input bg-white px-4 py-3 font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2';
+    'w-full rounded-lg border border-input bg-white px-4 py-3 font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus-visible:outline-2 focus-visible:outline-[var(--color-liger-accent-deep)] focus-visible:outline-offset-2';
 
   return (
     <form
@@ -161,7 +161,7 @@ export default function ContactForm() {
       <div className="flex flex-col sm:flex-row gap-3 mt-4">
         <button
           type="submit"
-          className="inline-flex items-center justify-center gap-2 bg-[var(--color-liger-accent)] hover:bg-[var(--color-liger-accent-hover)] text-[#262115] font-body font-semibold rounded-lg px-6 py-3.5 transition-all duration-200 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+          className="inline-flex items-center justify-center gap-2 bg-[var(--color-liger-accent)] hover:bg-[var(--color-liger-accent-hover)] text-[#241C16] font-body font-semibold rounded-lg px-6 py-3.5 transition-all duration-200 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-[var(--color-liger-accent-deep)] focus-visible:outline-offset-2"
         >
           <MessageCircle className="w-5 h-5" aria-hidden="true" />
           Send via WhatsApp
@@ -169,7 +169,7 @@ export default function ContactForm() {
         <button
           type="button"
           onClick={mailto}
-          className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-[var(--color-liger-primary-hover)] text-primary-foreground font-body font-semibold rounded-lg px-6 py-3.5 transition-all duration-200 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+          className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-[var(--color-liger-primary-hover)] text-primary-foreground font-body font-semibold rounded-lg px-6 py-3.5 transition-all duration-200 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-[var(--color-liger-accent-deep)] focus-visible:outline-offset-2"
         >
           <Send className="w-5 h-5" aria-hidden="true" />
           Send via Email

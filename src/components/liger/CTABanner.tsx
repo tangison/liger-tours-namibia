@@ -11,7 +11,7 @@ export default function CTABanner() {
       {/* Sun gradient glow, sampled from the logo */}
       <div
         className="absolute -top-32 left-1/2 -translate-x-1/2 w-[640px] h-[640px] rounded-full opacity-25 blur-3xl pointer-events-none"
-        style={{ background: 'radial-gradient(circle, #FFD54D 0%, #FC8D40 45%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, #E4B4B4 0%, #CC8484 45%, transparent 70%)' }}
         aria-hidden="true"
       />
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
@@ -34,7 +34,7 @@ export default function CTABanner() {
             <Button
               asChild
               size="lg"
-              className="bg-[var(--color-liger-accent)] hover:bg-[var(--color-liger-accent-hover)] text-[#262115] rounded-lg px-8 py-6 text-base font-semibold gap-2 shadow-[0_4px_24px_rgba(252,141,64,0.35)] active:scale-[0.98] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
+              className="bg-[var(--color-liger-accent)] hover:bg-[var(--color-liger-accent-hover)] text-[#241C16] rounded-lg px-8 py-6 text-base font-semibold gap-2 shadow-[0_4px_24px_rgba(204,132,132,0.4)] active:scale-[0.98] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
             >
               <a
                 href={CONTACT.whatsapp}

@@ -24,7 +24,7 @@ export default function GlobalError({
         }}
       >
         <div style={{ maxWidth: 420 }}>
-          <p style={{ fontFamily: 'cursive', fontSize: 44, color: '#C05621', margin: '0 0 8px' }}>500</p>
+          <p style={{ fontFamily: 'cursive', fontSize: 44, color: '#B37471', margin: '0 0 8px' }}>500</p>
           <h1 style={{ fontSize: 22, margin: '0 0 12px' }}>Liger Tours Namibia is briefly unavailable</h1>
           <p style={{ color: '#5D5339', fontSize: 14, lineHeight: 1.6, margin: '0 0 24px' }}>
             A server error occurred. Please try again in a moment, or call us on

@@ -60,7 +60,7 @@ export default function ActivitiesShowcase() {
                 </p>
                 <Link
                   href={`/activities#${activity.slug}`}
-                  className="inline-flex items-center gap-1.5 text-[var(--color-liger-accent-deep)] font-semibold text-sm font-body group-hover:gap-2.5 transition-all focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded-sm"
+                  className="inline-flex items-center gap-1.5 text-[var(--color-liger-accent-deep)] font-semibold text-sm font-body group-hover:gap-2.5 transition-all focus-visible:outline-2 focus-visible:outline-[var(--color-liger-accent-deep)] focus-visible:outline-offset-2 rounded-sm"
                   aria-label={`Read the full ${activity.title} itinerary`}
                 >
                   What happens
@@ -80,7 +80,7 @@ export default function ActivitiesShowcase() {
         >
           <Link
             href="/activities"
-            className="inline-flex items-center gap-2 font-body font-semibold text-primary hover:text-[var(--color-liger-accent-deep)] transition-colors group focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded-sm"
+            className="inline-flex items-center gap-2 font-body font-semibold text-primary hover:text-[var(--color-liger-accent-deep)] transition-colors group focus-visible:outline-2 focus-visible:outline-[var(--color-liger-accent-deep)] focus-visible:outline-offset-2 rounded-sm"
           >
             View all activities in detail
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />

@@ -32,7 +32,7 @@ export default function Hero() {
             Discover{' '}
             <span
               aria-hidden="true"
-              className="mx-1 inline-block h-[0.68em] w-[1.3em] translate-y-[0.06em] rounded-full bg-cover bg-center align-baseline shadow-[0_6px_24px_rgba(252,141,64,0.35)]"
+              className="mx-1 inline-block h-[0.68em] w-[1.3em] translate-y-[0.06em] rounded-full bg-cover bg-center align-baseline shadow-[0_6px_24px_rgba(204,132,132,0.45)]"
               style={{ backgroundImage: "url('/images/net/pill-deadvlei.webp')" }}
             />
             Namibia with{' '}
@@ -49,7 +49,7 @@ export default function Hero() {
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link
               href="/tours"
-              className="rounded-full bg-[var(--color-liger-accent)] px-8 py-4 text-base font-bold text-[#262115] transition-all duration-200 hover:bg-[var(--color-liger-accent-hover)] hover:shadow-[0_12px_40px_rgba(252,141,64,0.4)] active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2"
+              className="rounded-full bg-[var(--color-liger-accent)] px-8 py-4 text-base font-bold text-[#241C16] transition-all duration-200 hover:bg-[var(--color-liger-accent-hover)] hover:shadow-[0_12px_40px_rgba(204,132,132,0.45)] active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-[var(--color-liger-glow)] focus-visible:outline-offset-2"
             >
               Plan My Tour
             </Link>
@@ -77,7 +77,7 @@ export default function Hero() {
             />
             <div
               aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-t from-[#221D10]/55 via-transparent to-transparent"
+              className="absolute inset-0 bg-gradient-to-t from-[#201813]/55 via-transparent to-transparent"
             />
             <p className="absolute bottom-5 left-5 text-sm font-medium tracking-wide text-[#F3EDDE]/90">
               Deadvlei, Namib-Naukluft

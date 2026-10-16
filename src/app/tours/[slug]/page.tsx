@@ -48,7 +48,7 @@ export default async function TourDetailPage({ params }: Props) {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#262115]/45 via-[#262115]/30 to-[#262115]/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#201813]/45 via-[#201813]/30 to-[#201813]/70" />
         <div className="relative z-10 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-end pb-10">
           <nav aria-label="Breadcrumb" className="mb-4">
             <Link
@@ -63,7 +63,7 @@ export default async function TourDetailPage({ params }: Props) {
             {tour.title}
           </h1>
           {tour.duration ? (
-            <p className="mt-3 inline-flex items-center gap-2 bg-[#262115]/70 text-white px-3 py-1.5 rounded-full text-xs font-semibold font-body backdrop-blur-sm w-fit">
+            <p className="mt-3 inline-flex items-center gap-2 bg-[#201813]/70 text-white px-3 py-1.5 rounded-full text-xs font-semibold font-body backdrop-blur-sm w-fit">
               <Star className="w-3.5 h-3.5 text-[var(--color-liger-glow)]" aria-hidden="true" />
               {tour.duration}
             </p>
@@ -121,7 +121,7 @@ export default async function TourDetailPage({ params }: Props) {
                 href="https://wa.me/264814722552"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-[var(--color-liger-accent)] hover:bg-[var(--color-liger-accent-hover)] text-[#262115] font-body font-semibold rounded-lg px-5 py-3.5 transition-all duration-200 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+                className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-[var(--color-liger-accent)] hover:bg-[var(--color-liger-accent-hover)] text-[#201813] font-body font-semibold rounded-lg px-5 py-3.5 transition-all duration-200 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-[var(--color-liger-accent-deep)] focus-visible:outline-offset-2"
               >
                 Enquire About This Tour
                 <ArrowRight className="w-4 h-4" aria-hidden="true" />
@@ -143,7 +143,7 @@ export default async function TourDetailPage({ params }: Props) {
               <Link
                 key={t.slug}
                 href={`/tours/${t.slug}`}
-                className="group rounded-2xl overflow-hidden bg-background/80 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(43,38,20,0.12)] hover:ring-1 hover:ring-accent/30 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+                className="group rounded-2xl overflow-hidden bg-background/80 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(43,38,20,0.12)] hover:ring-1 hover:ring-accent/30 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-[var(--color-liger-accent-deep)] focus-visible:outline-offset-2"
               >
                 <div className="relative h-44 overflow-hidden">
                   <Image
