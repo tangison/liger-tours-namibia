@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://liger-tours-namibia.vercel.app/sitemap.xml

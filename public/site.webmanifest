@@ -1,0 +1,23 @@
+{
+  "name": "Liger Tours Namibia",
+  "short_name": "Liger Tours",
+  "description": "Authentic Namibian tours and safaris, Windhoek. Registered with the Namibia Tourism Board.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF7F0",
+  "theme_color": "#473E21",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
